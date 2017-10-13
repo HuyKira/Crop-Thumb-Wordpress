@@ -14,3 +14,11 @@ function hk_get_image($url, $w, $h){
 	$image = huykira_image_resize($url, $w, $h, true, false);
 	return $image['url'];	
 }
+
+function wpc_unset_imagesizes($sizes){  
+    unset( $sizes['thumbnail']);  
+    unset( $sizes['medium']);  
+    unset( $sizes['medium_large']);  
+    unset( $sizes['large']);  
+}  
+add_filter('intermediate_image_sizes_advanced', 'wpc_unset_imagesizes' ); 
